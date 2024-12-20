@@ -222,8 +222,8 @@ class CPUMonitor(Node):
                 return DiagnosticStatus.ERROR, vals
 
             upvals = stdout.split()
-            load1 = float(upvals[-3].rstrip(','))/self._num_cores
-            load5 = float(upvals[-2].rstrip(','))/self._num_cores
+            load1 = float(upvals[-3].rstrip(',').replace(',', '.')) / self._num_cores
+            load5 = float(upvals[-2].rstrip(',').replace(',', '.'))/self._num_cores
             load15 = float(upvals[-1])/self._num_cores
 
             # Give warning if we go over load limit
