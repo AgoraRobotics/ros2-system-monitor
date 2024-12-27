@@ -224,7 +224,7 @@ class CPUMonitor(Node):
             upvals = stdout.split()
             load1 = float(upvals[-3].rstrip(',').replace(',', '.')) / self._num_cores
             load5 = float(upvals[-2].rstrip(',').replace(',', '.'))/self._num_cores
-            load15 = float(upvals[-1])/self._num_cores
+            load15 = float(upvals[-1].rstrip(',').replace(',', '.'))/self._num_cores
 
             # Give warning if we go over load limit
             if load1 > self._cpu_load1_warn or load5 > self._cpu_load5_warn:
