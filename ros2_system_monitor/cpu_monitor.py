@@ -303,7 +303,7 @@ class CPUMonitor(Node):
                 system = lst[5]
 
                 core_level = DiagnosticStatus.OK
-                usage = (float(user)+float(nice))*1e-2
+                usage = (float(user.rstrip(',').replace(',', '.'))+float(nice.rstrip(',').replace(',', '.')))*1e-2
                 if usage > 10.0:  # wrong reading, use old reading instead
                     self.get_logger().warning(
                         f"Read CPU usage of {usage} percent. "
